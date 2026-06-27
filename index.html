@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HELOC Calculator 2025 — Home Equity Line of Credit Payment Estimator</title>
+<meta name="description" content="Calculate your HELOC credit limit, draw period payments and repayment period payments. See available home equity, interest-only vs fully amortized costs. Free, instant.">
+<link rel="canonical" href="https://heloc-calculator.pages.dev/">
+<meta property="og:title" content="HELOC Calculator 2025 — Home Equity Line of Credit Estimator">
+<meta property="og:description" content="Find your available HELOC credit limit and estimate monthly payments during draw and repayment periods based on your home value and mortgage balance.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://heloc-calculator.pages.dev/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6626869606288906" crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"HELOC Calculator","description":"Calculate home equity line of credit limit and payments for 2025","url":"https://heloc-calculator.pages.dev/","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a HELOC and how does it work?","acceptedAnswer":{"@type":"Answer","text":"A Home Equity Line of Credit (HELOC) is a revolving credit line secured by your home. Lenders typically allow you to borrow up to 85% of your home's value minus your mortgage balance. A HELOC has two phases: a draw period (usually 10 years) where you can borrow and pay interest only, followed by a repayment period (usually 20 years) where you pay back principal plus interest."}},{"@type":"Question","name":"What is the difference between a HELOC and a home equity loan?","acceptedAnswer":{"@type":"Answer","text":"A home equity loan gives you a lump sum at a fixed rate — like a second mortgage. A HELOC is a revolving line of credit with a variable rate, like a credit card secured by your home. HELOCs offer more flexibility (borrow only what you need), while home equity loans provide payment predictability with a fixed rate."}},{"@type":"Question","name":"Is HELOC interest tax deductible in 2025?","acceptedAnswer":{"@type":"Answer","text":"HELOC interest is tax-deductible only if the funds are used to 'buy, build, or substantially improve' your home (per IRS rules post-2017 Tax Cuts and Jobs Act). Interest on HELOCs used for personal expenses (vacations, cars, debt consolidation) is NOT deductible. Consult a tax professional for your specific situation."}},{"@type":"Question","name":"What credit score do I need for a HELOC?","acceptedAnswer":{"@type":"Answer","text":"Most lenders require a minimum credit score of 620 for a HELOC, though scores of 700+ qualify for the best rates. Lenders also typically require: at least 15–20% home equity, a debt-to-income ratio below 43%, and documented income. With a score under 660, expect a higher interest rate or difficulty qualifying."}},{"@type":"Question","name":"What happens at the end of the HELOC draw period?","acceptedAnswer":{"@type":"Answer","text":"At the end of the draw period (typically 10 years), your HELOC enters repayment. You can no longer borrow from the line, and your monthly payment jumps significantly because you now pay both principal and interest over the remaining 20-year term. Some lenders offer balloon payments or renewal options — review your loan terms carefully before the transition."}}]}</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f8fafc;color:#0f172a;line-height:1.6}
+header{background:linear-gradient(135deg,#065f46,#059669);color:#fff;padding:28px 20px 24px;text-align:center}
+header h1{font-size:clamp(20px,4vw,30px);font-weight:700}
+header p{margin-top:6px;opacity:.85;font-size:15px}
+.container{max-width:860px;margin:0 auto;padding:0 16px 60px}
+.ad-slot{background:#f1f5f9;border:1px dashed #cbd5e1;border-radius:8px;min-height:90px;display:flex;align-items:center;justify-content:center;color:#94a3b8;font-size:12px;margin:20px 0}
+.card{background:#fff;border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.08);padding:28px;margin-top:24px}
+.card h2{font-size:18px;font-weight:700;color:#1e293b;margin-bottom:20px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+@media(max-width:600px){.grid-2,.grid-3{grid-template-columns:1fr}}
+label{display:block;font-size:13px;font-weight:600;color:#475569;margin-bottom:5px}
+.hint{font-size:11px;color:#94a3b8;margin-top:3px}
+.input-wrap{position:relative}
+.prefix,.suffix{position:absolute;top:50%;transform:translateY(-50%);font-size:15px;color:#64748b;font-weight:600;pointer-events:none}
+.prefix{left:12px}.suffix{right:12px}
+input[type=number],select{width:100%;border:1.5px solid #e2e8f0;border-radius:8px;background:#f8fafc;color:#0f172a;font-size:16px;padding:10px 12px;outline:none;transition:border-color .2s}
+input[type=number]:focus,select:focus{border-color:#059669;background:#fff}
+input.has-prefix{padding-left:28px}
+input.has-suffix{padding-right:40px}
+.sec-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:#64748b;margin:22px 0 14px;padding-bottom:6px;border-bottom:1px solid #f1f5f9}
+.calc-btn{width:100%;margin-top:22px;padding:14px;background:linear-gradient(135deg,#065f46,#059669);color:#fff;border:none;border-radius:10px;font-size:17px;font-weight:700;cursor:pointer;transition:opacity .2s}
+.calc-btn:hover{opacity:.9}
+#results{display:none}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:20px}
+.stat-box{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:14px;text-align:center}
+.stat-box.blue{background:#eff6ff;border-color:#bfdbfe}
+.stat-box.amber{background:#fffbeb;border-color:#fde68a}
+.stat-box .s-label{font-size:11px;font-weight:700;text-transform:uppercase;color:#64748b;letter-spacing:.4px}
+.stat-box .s-val{font-size:24px;font-weight:800;color:#0f172a;margin-top:4px}
+.stat-box .s-sub{font-size:11px;color:#94a3b8;margin-top:2px}
+.phase-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+@media(max-width:520px){.phase-grid{grid-template-columns:1fr}}
+.phase-card{border-radius:10px;padding:18px;border:2px solid}
+.phase-card.draw{border-color:#059669;background:#f0fdf4}
+.phase-card.repay{border-color:#1d4ed8;background:#eff6ff}
+.phase-card .ph-title{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.phase-card.draw .ph-title{color:#065f46}
+.phase-card.repay .ph-title{color:#1e40af}
+.phase-card .ph-payment{font-size:30px;font-weight:800;line-height:1}
+.phase-card.draw .ph-payment{color:#065f46}
+.phase-card.repay .ph-payment{color:#1e40af}
+.phase-card .ph-sub{font-size:12px;color:#94a3b8}
+.phase-card .ph-desc{font-size:12px;color:#64748b;margin-top:10px;line-height:1.5}
+.equity-bar-wrap{margin:20px 0}
+.equity-bar-wrap h3{font-size:14px;font-weight:700;margin-bottom:8px}
+.etrack{height:28px;border-radius:14px;overflow:hidden;display:flex}
+.e-mortgage{background:#ef4444;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff}
+.e-equity{background:#22c55e;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff}
+.e-avail{background:#3b82f6;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff}
+.elabels{display:flex;gap:16px;margin-top:6px;font-size:11px;color:#64748b;flex-wrap:wrap}
+.elabels span{display:flex;align-items:center;gap:4px}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+.info-box{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:14px 16px;margin-top:16px;font-size:14px;color:#065f46;line-height:1.7}
+.disclaimer{background:#f8fafc;border-radius:8px;padding:12px 16px;font-size:12px;color:#94a3b8;margin-top:16px}
+details{border-bottom:1px solid #f1f5f9;padding:14px 0}
+summary{font-size:15px;font-weight:600;cursor:pointer;color:#1e293b;list-style:none;display:flex;justify-content:space-between}
+summary::-webkit-details-marker{display:none}
+summary::after{content:'+';font-size:20px;color:#059669;font-weight:400}
+details[open] summary::after{content:'−'}
+details p{margin-top:10px;color:#475569;font-size:14px;line-height:1.7}
+footer{text-align:center;color:#94a3b8;font-size:12px;padding:20px;border-top:1px solid #e2e8f0;margin-top:40px}
+footer a{color:#64748b}
+</style>
+</head>
+<body>
+<header>
+  <h1>🏠 HELOC Calculator</h1>
+  <p>Home Equity Line of Credit · Draw Period · Repayment · 2025</p>
+</header>
+<div class="container">
+  <div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6626869606288906" data-ad-slot="1122334455" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
+  <div class="card">
+    <h2>📋 Your Home & Loan Details</h2>
+
+    <div class="sec-label">Home Value & Mortgage</div>
+    <div class="grid-2">
+      <div>
+        <label for="home-value">Current Home Value</label>
+        <div class="input-wrap"><span class="prefix">$</span><input type="number" id="home-value" class="has-prefix" value="450000" min="50000" step="5000"></div>
+      </div>
+      <div>
+        <label for="mortgage-bal">Current Mortgage Balance</label>
+        <div class="input-wrap"><span class="prefix">$</span><input type="number" id="mortgage-bal" class="has-prefix" value="280000" min="0" step="1000"></div>
+      </div>
+    </div>
+
+    <div class="sec-label">HELOC Terms</div>
+    <div class="grid-3">
+      <div>
+        <label for="ltv">Max LTV Ratio</label>
+        <div class="input-wrap"><input type="number" id="ltv" class="has-suffix" value="85" min="60" max="95"><span class="suffix">%</span></div>
+        <div class="hint">Most lenders: 80–85%</div>
+      </div>
+      <div>
+        <label for="heloc-rate">Interest Rate (APR)</label>
+        <div class="input-wrap"><input type="number" id="heloc-rate" class="has-suffix" value="8.5" min="1" max="20" step="0.1"><span class="suffix">%</span></div>
+        <div class="hint">Variable; avg 2025: ~8–9%</div>
+      </div>
+      <div>
+        <label for="draw-amount">Amount You Plan to Draw</label>
+        <div class="input-wrap"><span class="prefix">$</span><input type="number" id="draw-amount" class="has-prefix" value="50000" min="1000" step="1000"></div>
+      </div>
+    </div>
+    <div class="grid-2" style="margin-top:14px">
+      <div>
+        <label for="draw-period">Draw Period</label>
+        <select id="draw-period">
+          <option value="5">5 years</option>
+          <option value="10" selected>10 years (most common)</option>
+          <option value="15">15 years</option>
+        </select>
+      </div>
+      <div>
+        <label for="repay-period">Repayment Period</label>
+        <select id="repay-period">
+          <option value="10">10 years</option>
+          <option value="15">15 years</option>
+          <option value="20" selected>20 years (most common)</option>
+        </select>
+      </div>
+    </div>
+
+    <button class="calc-btn" onclick="calculate()">Calculate My HELOC →</button>
+  </div>
+
+  <div id="results">
+    <div class="card">
+      <div class="equity-bar-wrap">
+        <h3>Your Home Equity Breakdown</h3>
+        <div class="etrack" id="etrack"></div>
+        <div class="elabels">
+          <span><span class="dot" style="background:#ef4444"></span>Mortgage owed</span>
+          <span><span class="dot" style="background:#22c55e"></span>Equity (locked)</span>
+          <span><span class="dot" style="background:#3b82f6"></span>Available HELOC</span>
+        </div>
+      </div>
+
+      <div class="stat-grid" id="stat-grid"></div>
+
+      <div class="phase-grid" id="phase-grid"></div>
+
+      <div class="info-box" id="info-box"></div>
+      <div class="disclaimer">⚠️ Estimates only. HELOC rates are variable and will change over time. Actual credit limit and rate depend on your lender, credit score, and local market. This is not a loan offer.</div>
+    </div>
+  </div>
+
+  <div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6626869606288906" data-ad-slot="2233445566" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
+  <div class="card">
+    <h2>Frequently Asked Questions</h2>
+    <details open><summary>What is a HELOC and how does it work?</summary><p>A Home Equity Line of Credit (HELOC) is a revolving credit line secured by your home. Lenders typically allow you to borrow up to 85% of your home's value minus your mortgage balance. A HELOC has two phases: a draw period (usually 10 years) where you can borrow and pay interest only, followed by a repayment period (usually 20 years) where you pay back principal plus interest.</p></details>
+    <details><summary>What is the difference between a HELOC and a home equity loan?</summary><p>A home equity loan gives you a lump sum at a fixed rate — like a second mortgage. A HELOC is a revolving line of credit with a variable rate, like a credit card secured by your home. HELOCs offer more flexibility (borrow only what you need), while home equity loans provide payment predictability with a fixed rate.</p></details>
+    <details><summary>Is HELOC interest tax deductible in 2025?</summary><p>HELOC interest is tax-deductible only if the funds are used to 'buy, build, or substantially improve' your home (per IRS rules post-2017 Tax Cuts and Jobs Act). Interest on HELOCs used for personal expenses (vacations, cars, debt consolidation) is NOT deductible. Consult a tax professional for your specific situation.</p></details>
+    <details><summary>What credit score do I need for a HELOC?</summary><p>Most lenders require a minimum credit score of 620 for a HELOC, though scores of 700+ qualify for the best rates. Lenders also typically require: at least 15–20% home equity, a debt-to-income ratio below 43%, and documented income.</p></details>
+    <details><summary>What happens at the end of the HELOC draw period?</summary><p>At the end of the draw period (typically 10 years), your HELOC enters repayment. You can no longer borrow from the line, and your monthly payment jumps significantly because you now pay both principal and interest over the remaining 20-year term. Review your loan terms carefully before the transition.</p></details>
+  </div>
+
+  <div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6626869606288906" data-ad-slot="3344556677" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+</div>
+
+<footer><p>HELOCCalculator · Estimates only. Not a loan offer. Rates vary by lender and creditworthiness.</p><p style="margin-top:6px"><a href="/privacy.html">Privacy Policy</a></p></footer>
+
+<script>
+const fmt=n=>'$'+Math.round(n).toLocaleString('en-US');
+
+function pmt(r,n,pv){if(r===0)return pv/n;return pv*(r*Math.pow(1+r,n))/(Math.pow(1+r,n)-1);}
+
+function calculate(){
+  const homeVal=parseFloat(document.getElementById('home-value').value)||450000;
+  const mortgageBal=parseFloat(document.getElementById('mortgage-bal').value)||0;
+  const ltv=parseFloat(document.getElementById('ltv').value)/100||0.85;
+  const rate=parseFloat(document.getElementById('heloc-rate').value)/100||0.085;
+  const drawAmt=parseFloat(document.getElementById('draw-amount').value)||50000;
+  const drawPeriod=parseInt(document.getElementById('draw-period').value)||10;
+  const repayPeriod=parseInt(document.getElementById('repay-period').value)||20;
+
+  const maxBorrow=Math.max(0,homeVal*ltv-mortgageBal);
+  const actualDraw=Math.min(drawAmt,maxBorrow);
+  const equity=homeVal-mortgageBal;
+  const lockedEquity=Math.max(0,equity-maxBorrow);
+
+  // Equity bar percentages
+  const mortgagePct=Math.min(mortgageBal/homeVal*100,100);
+  const lockedPct=Math.min(lockedEquity/homeVal*100,100);
+  const availPct=Math.min(maxBorrow/homeVal*100,100);
+  const etrack=document.getElementById('etrack');
+  etrack.innerHTML=`
+    <div class="e-mortgage" style="width:${mortgagePct.toFixed(1)}%">${mortgagePct>8?fmt(mortgageBal):''}</div>
+    <div class="e-equity" style="width:${lockedPct.toFixed(1)}%">${lockedPct>8?'Equity':''}</div>
+    <div class="e-avail" style="width:${availPct.toFixed(1)}%">${availPct>8?'HELOC':''}</div>
+  `;
+
+  // Stats
+  const moRate=rate/12;
+  const drawPayment=actualDraw*moRate; // interest only
+  const repayPayment=pmt(moRate,repayPeriod*12,actualDraw);
+  const totalInterestDraw=drawPayment*drawPeriod*12;
+  const totalInterestRepay=repayPayment*repayPeriod*12-actualDraw;
+  const totalCost=totalInterestDraw+totalInterestRepay;
+
+  const sg=document.getElementById('stat-grid');
+  sg.innerHTML=`
+    <div class="stat-box"><div class="s-label">Max Credit Line</div><div class="s-val">${fmt(maxBorrow)}</div><div class="s-sub">at ${(ltv*100).toFixed(0)}% LTV</div></div>
+    <div class="stat-box blue"><div class="s-label">Amount Drawing</div><div class="s-val">${fmt(actualDraw)}</div><div class="s-sub">${actualDraw<maxBorrow?'within limit':'at limit'}</div></div>
+    <div class="stat-box"><div class="s-label">Home Equity</div><div class="s-val">${fmt(equity)}</div><div class="s-sub">${((equity/homeVal)*100).toFixed(0)}% of home value</div></div>
+    <div class="stat-box amber"><div class="s-label">Total Interest Cost</div><div class="s-val">${fmt(totalCost)}</div><div class="s-sub">over full term</div></div>
+  `;
+
+  // Phase cards
+  const pg=document.getElementById('phase-grid');
+  pg.innerHTML=`
+    <div class="phase-card draw">
+      <div class="ph-title">Draw Period (${drawPeriod} yrs)</div>
+      <div class="ph-payment">${fmt(drawPayment)}</div>
+      <div class="ph-sub">/month · interest only</div>
+      <div class="ph-desc">You only pay interest on what you've drawn. Principal balance stays at ${fmt(actualDraw)}. Total interest this phase: ${fmt(totalInterestDraw)}.</div>
+    </div>
+    <div class="phase-card repay">
+      <div class="ph-title">Repayment Period (${repayPeriod} yrs)</div>
+      <div class="ph-payment">${fmt(repayPayment)}</div>
+      <div class="ph-sub">/month · principal + interest</div>
+      <div class="ph-desc">Payment jumps ${fmt(repayPayment-drawPayment)}/mo (+${((repayPayment/drawPayment-1)*100).toFixed(0)}%) when draw period ends. Total interest this phase: ${fmt(totalInterestRepay)}.</div>
+    </div>
+  `;
+
+  // Info
+  const infoEl=document.getElementById('info-box');
+  if(maxBorrow<=0){infoEl.textContent='⚠️ Based on your inputs, you do not have enough equity to qualify for a HELOC at the selected LTV. You need at least 15–20% equity (LTV below 80–85%) to qualify with most lenders.';}
+  else if(drawAmt>maxBorrow){infoEl.textContent=`💡 Your requested draw (${fmt(drawAmt)}) exceeds your available credit (${fmt(maxBorrow)}). We've adjusted the calculation to your maximum available amount. Consider a cash-out refinance if you need more.`;}
+  else{infoEl.textContent=`💡 Your payment jumps from ${fmt(drawPayment)}/mo (interest only) to ${fmt(repayPayment)}/mo when repayment begins. Plan for this ${fmt(repayPayment-drawPayment)}/mo increase in ${drawPeriod} years. Consider making extra principal payments during the draw period to reduce the repayment shock.`;}
+
+  document.getElementById('results').style.display='block';
+  document.getElementById('results').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+window.addEventListener('DOMContentLoaded',calculate);
+</script>
+</body>
+</html>
