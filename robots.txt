@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://heloc-calculator.pages.dev/sitemap.xml
+Sitemap: https://heloc-calculator-ckb.pages.dev/sitemap.xml
